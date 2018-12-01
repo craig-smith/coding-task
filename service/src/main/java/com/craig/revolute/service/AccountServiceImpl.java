@@ -4,9 +4,11 @@ import com.craig.revolute.data.model.Account;
 import com.craig.revolute.repository.AccountRepository;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Optional;
 
 @Service
+@Transactional
 public class AccountServiceImpl implements AccountsService {
 
     private final AccountRepository accountRepository;

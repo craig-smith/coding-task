@@ -78,6 +78,7 @@ public class AccountServiceIT {
         //when
         AccountDTO.Builder builder = getDefaultDTO();
         builder.money(Currency.EUR, 12000D);
+        builder.id(defaultData.getId());
         Account account = accountsService.update(objectMapper.convertValue(builder.build(), Account.class));
 
         //then
