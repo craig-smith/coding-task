@@ -1,19 +1,30 @@
 package com.craig.revolute.data.model.dto
 
+import io.swagger.annotations.ApiModel
+import io.swagger.annotations.ApiModelProperty
+
+@ApiModel(value = "Owner", description = "The owner of the account")
 data class OwnerDTO(
 
-        val id: Int?,
+        val id: Long?,
+
+        @ApiModelProperty(example = "Craig", value = "Person's first name", required = true)
         val firstName: String?,
+
+        @ApiModelProperty(example = "Smith", value = "Person's last name", required = true)
         val lastName: String?,
+
+        @ApiModelProperty(example = "555-1234", value = "phone number", required = true)
         val phoneNumber: String?,
+
         val address: AddressDTO?) {
     data class Builder(
-            private var id: Int? = null,
+            private var id: Long? = null,
             private var firstName: String? = null,
             private var lastName: String? = null,
             private var phoneNumber: String? = null,
             private var address: AddressDTO? = null) {
-        fun id(id: Int) = apply { this.id = id }
+        fun id(id: Long) = apply { this.id = id }
         fun firstName(firstName: String) = apply { this.firstName = firstName }
         fun lastName(lastName: String) = apply { this.lastName = lastName }
         fun phoneNumber(phoneNumber: String) = apply { this.phoneNumber = phoneNumber }

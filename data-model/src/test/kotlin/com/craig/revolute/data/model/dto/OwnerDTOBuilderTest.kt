@@ -1,5 +1,8 @@
 package com.craig.revolute.data.model.dto
 
+import org.assertj.core.api.Assertions.assertThat
+import org.junit.Test
+
 class OwnerDTOBuilderTest {
 
     @Test

@@ -1,4 +1,4 @@
-package com.craig.revolute.codingtask;
+package com.craig.revolute;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

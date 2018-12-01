@@ -1,3 +1,18 @@
 package com.craig.revolute.data.model
 
-data class Owner(val id: Int?, val firstName: String?, val lastName: String?, val phoneNumber: String?, val address: Address?)
+import javax.persistence.*
+
+@Entity
+data class Owner(
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        val id: Long,
+
+        val firstName: String?,
+
+        val lastName: String?,
+
+        val phoneNumber: String?,
+
+        @OneToOne(targetEntity = Address::class, cascade = arrayOf(CascadeType.ALL))
+        val address: Address?)
