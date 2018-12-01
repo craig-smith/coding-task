@@ -1,0 +1,3 @@
+package com.craig.revolute.data.model
+
+data class Account(val owner: Owner?, val monies: Map<Currency, Double>?) //double here could be changed for something better....
