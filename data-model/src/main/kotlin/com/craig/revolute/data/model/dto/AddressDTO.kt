@@ -2,17 +2,21 @@ package com.craig.revolute.data.model.dto
 
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
+import javax.validation.constraints.NotNull
 
 @ApiModel(value = "Address", description = "The address of the owner")
 data class AddressDTO(
         var id: Long?,
+        @field:NotNull
         @ApiModelProperty(example = "Poland", value = "Country where the person lives", required = true)
         val country: String?,
 
         @ApiModelProperty(example = "Krakow", value = "City where the person lives", required = true)
+        @field:NotNull
         val city: String?,
 
         @ApiModelProperty(example = "Some Street", value = "Street where the person lives", required = true)
+        @field:NotNull
         val street: String?) {
     data class Builder(
             private var id: Long? = null,

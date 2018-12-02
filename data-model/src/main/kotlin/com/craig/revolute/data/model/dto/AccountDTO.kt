@@ -3,12 +3,14 @@ package com.craig.revolute.data.model.dto
 import com.craig.revolute.data.model.Currency
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
+import javax.validation.constraints.NotNull
 
 @ApiModel
 data class AccountDTO(
         val id: Long?,
 
         @ApiModelProperty(value = "Owner of the account", required = true)
+        @field:NotNull
         val owner: OwnerDTO?,
 
         @ApiModelProperty(example = "EUR: 1000", value = "Currencies and Values", required = false)

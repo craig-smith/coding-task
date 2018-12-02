@@ -8,6 +8,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Optional;
 
 import static com.craig.revolute.controller.Paths.ACCOUNT;
@@ -41,7 +42,7 @@ public class RestAccountController {
             response = AccountDTO.class
     )
     @PostMapping(produces = "application/json")
-    public ResponseEntity<AccountDTO> createAccount(@RequestBody AccountDTO accountDTO) {
+    public ResponseEntity<AccountDTO> createAccount(@RequestBody @Valid AccountDTO accountDTO) {
         Account accountToSave = mapper.convertValue(accountDTO, Account.class);
         Account savedAccount = accountsService.save(accountToSave);
         return ResponseEntity.ok(mapper.convertValue(savedAccount, AccountDTO.class));
@@ -64,7 +65,7 @@ public class RestAccountController {
             response = AccountDTO.class
     )
     @PutMapping(produces = "application/json")
-    public ResponseEntity<AccountDTO> updateAccount(@RequestBody AccountDTO accountDTO) {
+    public ResponseEntity<AccountDTO> updateAccount(@RequestBody @Valid AccountDTO accountDTO) {
         Account updatedAccount = accountsService.update(mapper.convertValue(accountDTO, Account.class));
         if (updatedAccount != null) {
             return ResponseEntity.ok(mapper.convertValue(updatedAccount, AccountDTO.class));
